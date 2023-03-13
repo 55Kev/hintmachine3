@@ -7,6 +7,11 @@ git subtree push --prefix build  origin gh-pages
 
 https://gist.github.com/cobyism/4730490
 
+Ajout de 
++ "predeploy": "npm run build",
++ "deploy": "gh-pages -d build",
+à package.json
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
