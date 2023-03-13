@@ -6,9 +6,11 @@ export default function Menu({ render, enigmes, eventChoixEnigme }) {
 
   //Affichage
   return (
-    <div className="menu row text-center">
+  <div className="row">
+    <div className="menu-titre row text-center">
       <h4>Choisissez la page de l'énigme</h4>
-
+    </div>
+    <div className="menu row text-center">
       {enigmes.map((enigme, index) => (
         <button
           className="btn btn-default btn-lg"
@@ -17,8 +19,7 @@ export default function Menu({ render, enigmes, eventChoixEnigme }) {
           Page {enigme.page}
         </button>
       ))}
-      <h5>Dossier "La fortune du Cap"</h5>
-      <h5>Six-Fours-les-Plages</h5>
     </div>
+  </div>
   );
 }
