@@ -6,12 +6,20 @@ body {
   font-family: Quantico;
   width: 100vw;
   height: 100vh;
+  display: flex;
 }
 
-.container {
-  width: 100vw;
-  height: 100vh;
-}
+#root {
+       display: flex;
+     }
+
+.App {
+       display: flex;
+         width: 100vw;
+         height: 100vh;
+           flex-direction: column;
+           align-items: center;
+     }
 
 .hero {
   background-image: url("https://www.exitgame.fr/wp-content/uploads/2023/03/logor_trou.png");
@@ -19,51 +27,57 @@ body {
   background-repeat: no-repeat;
   background-size: 17%;
   color: #c0daff;
-  height: 15%;
+  height: 15vh;
+  min-width: 400px;
   margin-top: 5%;
-}
-
-.menu .btn {
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  min-width: 10%;
-  margin: 0.5vw;
-  background-color: black;
-  border-color: #ccc;
-  color: #c0daff;
 }
 
 .menu {
   padding: 2%;
-  display: flex;
-  flex-wrap: wrap;
-  height: 80%;
-  align-content: center;
+  flex:1;
+  height: 85vh;
 }
 
-.menu.row {
-    margin: 0;
+.menu-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.menu .btn {
+  background-color: black;
+  border-color: #ccc;
+  color: #c0daff;
+  flex: 0 32%;
+  margin-bottom: 2%; /* (100-32*3)/2 */
 }
 
 .content {
-  padding: 5%;
-  height: 80%;
+  padding: 2%;
+  flex:1;
+  height: 85vh;
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content .contentIndice {
-  min-height: 33%;
+flex:1;
+flex-grow:1;
+  min-height: 40vh;
   padding-top: 5%;
   padding-bottom: 5%;
 }
 
 .content .btn {
-  margin-top: 5%;
+flex:1;
+    height: 12vh;
+  margin-top: 3%;
   background-color: #c0daff;
   border-color: #ccc;
   color: black;
-  flex-grow: 1;
+  width: 90%;
 }
 
 .content .p {
@@ -71,7 +85,9 @@ body {
 }
 
 .content .buttonGetIndice {
-  position: absolute;
-  bottom: 40px;
-  width: 85%;
+
+}
+
+.content .buttonGetIndice {
+
 }

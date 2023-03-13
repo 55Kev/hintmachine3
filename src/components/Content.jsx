@@ -38,7 +38,9 @@ export default function Content({
   const affLibButtonHint = () => {
     let ret = "";
 
-    if (history[enigme] === enigmes[enigme].texteIndice.length) return;
+    if (history[enigme] === enigmes[enigme].texteIndice.length) {
+        ret = "Passez à l'étape suivante !";
+      }
     else if (history[enigme] === enigmes[enigme].texteIndice.length - 1)
       ret = "Afficher la solution";
     else {
@@ -48,19 +50,20 @@ export default function Content({
         "/" +
         (enigmes[enigme].texteIndice.length - 1);
     }
+
     return (
       <button
         onClick={() => handleShowHint()}
         className="btn btn-primary btn-lg btn-block buttonGetIndice"
-      >
-        {ret}
+         >
+         {ret}
       </button>
     );
   };
 
   //Affichage
   return (
-    <div className="content row">
+    <div className="content">
       <h3 className="text-center">page n°{enigmes[enigme].page}</h3>
       <h4 className="text-center">"{affLib()}"</h4>
 
