@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bf815f-d2c1-4383-af37-dd8fcc061272" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/asset-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.98a72df9.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.98a72df9.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.b99e1226.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.b99e1226.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.b99e1226.js.map" beforeDir="false" />
-    </list>
+    <list default="true" id="74bf815f-d2c1-4383-af37-dd8fcc061272" name="Changes" comment="fxgx" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +24,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/Users/kevin/Documents/00-Sync/05-Projets/48-ExitGameApp/01-Code/hintmachine3"
@@ -46,6 +39,14 @@
       <option name="presentableId" value="Default" />
       <updated>1678725141506</updated>
     </task>
+    <task id="LOCAL-00001" summary="fxgx">
+      <created>1678727157903</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678727157903</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -70,5 +71,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fxgx" />
+    <option name="LAST_COMMIT_MESSAGE" value="fxgx" />
   </component>
 </project>

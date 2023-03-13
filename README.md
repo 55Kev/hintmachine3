@@ -5,6 +5,7 @@ Pour pousser les modifications :
 
 git subtree push --prefix build  origin gh-pages
 
+https://gist.github.com/cobyism/4730490
 
 # Getting Started with Create React App
 
