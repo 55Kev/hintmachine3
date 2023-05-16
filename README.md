@@ -4,7 +4,10 @@
 Pour pousser les modifications :
 
 + git push origin --delete gh-pages
++ npm run buid
++ commit gh-pages
 + git subtree push --prefix build  origin gh-pages
++ attendre un peu....
 
 https://gist.github.com/cobyism/4730490
 
