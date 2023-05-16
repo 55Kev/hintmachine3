@@ -8,7 +8,7 @@ export default function Menu({ render, enigmes, eventChoixEnigme }) {
   return (
   <div className="menu">
     <div className="menu-titre text-center">
-      <h4>Choisissez la page de l'énigme</h4>
+      <h4>Choisissez la page de l'énigme pour l'indice</h4>
     </div>
     <div className="menu-content text-center">
       {enigmes.map((enigme, index) => (

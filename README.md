@@ -3,7 +3,8 @@
 
 Pour pousser les modifications :
 
-git subtree push --prefix build  origin gh-pages
++ git push origin --delete gh-pages
++ git subtree push --prefix build  origin gh-pages
 
 https://gist.github.com/cobyism/4730490
 
