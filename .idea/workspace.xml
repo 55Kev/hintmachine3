@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bf815f-d2c1-4383-af37-dd8fcc061272" name="Changes" comment="maj indices panier" />
+    <list default="true" id="74bf815f-d2c1-4383-af37-dd8fcc061272" name="Changes" comment="ajout aix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684248328114</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ajout aix">
+      <created>1687270391646</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687270391646</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,6 +134,7 @@
     <MESSAGE value="fxgx" />
     <MESSAGE value="maj routing" />
     <MESSAGE value="maj indices panier" />
-    <option name="LAST_COMMIT_MESSAGE" value="maj indices panier" />
+    <MESSAGE value="ajout aix" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout aix" />
   </component>
 </project>

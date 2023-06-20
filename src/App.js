@@ -6,7 +6,7 @@ import Content from "./components/Content";
 
 export default function App() {
 
-const panier = [
+const aix = [
   {
     page: 6,
     lib: "Première énigme !",
@@ -107,7 +107,7 @@ const panier = [
   }
 ];
 
-const aix = [
+const panier = [
     {
       page: 8,
       lib: "Première énigme !",
@@ -553,7 +553,7 @@ const enigmeOptions = {
   "aix": aix,
   "": vide
 };
-const tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : "vide";
+const tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : "avi";
 if (!tabEnigmes) {
   tabEnigmes = enigmeOptions.vide; // Valeur par défaut si aucune option valide n'est spécifiée
 }
