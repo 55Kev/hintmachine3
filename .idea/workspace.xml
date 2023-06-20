@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bf815f-d2c1-4383-af37-dd8fcc061272" name="Changes" comment="ajout aix">
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.8e9bf68f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.8e9bf68f.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.8e9bf68f.js.map" beforeDir="false" />
-    </list>
+    <list default="true" id="74bf815f-d2c1-4383-af37-dd8fcc061272" name="Changes" comment="correc aix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687270796380</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="correc aix">
+      <created>1687271111683</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687271111683</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +153,7 @@
     <MESSAGE value="maj routing" />
     <MESSAGE value="maj indices panier" />
     <MESSAGE value="ajout aix" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout aix" />
+    <MESSAGE value="correc aix" />
+    <option name="LAST_COMMIT_MESSAGE" value="correc aix" />
   </component>
 </project>
