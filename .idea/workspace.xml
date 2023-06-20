@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bf815f-d2c1-4383-af37-dd8fcc061272" name="Changes" comment="maj routing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-    </list>
+    <list default="true" id="74bf815f-d2c1-4383-af37-dd8fcc061272" name="Changes" comment="maj indices panier" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684245314333</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="maj indices panier">
+      <created>1684248328114</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684248328114</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +123,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fxgx" />
     <MESSAGE value="maj routing" />
-    <option name="LAST_COMMIT_MESSAGE" value="maj routing" />
+    <MESSAGE value="maj indices panier" />
+    <option name="LAST_COMMIT_MESSAGE" value="maj indices panier" />
   </component>
 </project>

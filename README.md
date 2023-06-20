@@ -4,7 +4,7 @@
 Pour pousser les modifications :
 
 + git push origin --delete gh-pages
-+ npm run buid
++ npm run build
 + commit gh-pages
 + git subtree push --prefix build  origin gh-pages
 + attendre un peu....
