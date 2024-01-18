@@ -462,29 +462,32 @@ const sif = [
       },
       {
         page: 19,
-        lib: "Ecran ou nacre ?",
+        //lib: "Ecran ou nacre ?",
+        lib: "Enigme de remplacement: L'intru",
         texteIndice: [
-          "Anagramme",
-          "Restez prês de la capitainerie",
-          "Trouvez l'ancre où est noté 'SLN'"
+          "Ce n'est ni la castagnole, ni le serran",
+          "Pas non plus le sar et la girelle ",
+          "Réponse : La BAUDROIE (lettre B) n'est pas sur l'image"
         ]
       },
       {
         page: 21,
-        lib: "La devinette",
+        //lib: "La devinette",
+        lib: "Enigme de remplacement: La petite",
         texteIndice: [
-          "De qui/quoi parle-t-on ?",
-          "Les pavillons !",
-          "Un drapeau (donc 'bleu blanc rouge')"
+          "Traditionnellement j'ai plutôt la tête rouge",
+          "Au bord de toutes les routes de France, à chaque KM",
+          "Réponse : SANARY (lettre N) sur la borne"
         ]
       },
       {
         page: 23,
-        lib: "L'éléphant",
+        //lib: "L'éléphant",
+        lib: "Enigme de remplacement: L'intru",
         texteIndice: [
-          "Pas d'animal à trouver",
-          "Plutôt une grande plante ressemblant à des pieds d'éléphants",
-          "'Californie' d'où viennent les yuccas selon le panneau"
+          "Un panneau à trouver",
+          "Il faut aussi inverser, ou décrire l'opposé",
+          "La réponse est : GRATUIT (la lettre R)"
         ]
       },
       {
