@@ -9,7 +9,8 @@
 /coverage
 
 # production
-#/build comment car besoin pour la prod de github pages
+/build 
+#comment car besoin pour la prod de github pages
 
 # misc
 .DS_Store
