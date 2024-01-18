@@ -553,7 +553,7 @@ const enigmeOptions = {
   "aix": aix,
   "": vide
 };
-const tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : "avi";
+let tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : "avi";
 if (!tabEnigmes) {
   tabEnigmes = enigmeOptions.vide; // Valeur par défaut si aucune option valide n'est spécifiée
 }
