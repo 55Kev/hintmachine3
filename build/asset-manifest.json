@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/hintmachine3/static/css/main.98a72df9.css",
-    "main.js": "/hintmachine3/static/js/main.c2fc9e5d.js",
-    "index.html": "/hintmachine3/index.html",
-    "main.98a72df9.css.map": "/hintmachine3/static/css/main.98a72df9.css.map",
-    "main.c2fc9e5d.js.map": "/hintmachine3/static/js/main.c2fc9e5d.js.map"
+    "main.css": "./static/css/main.98a72df9.css",
+    "main.js": "./static/js/main.c2fc9e5d.js",
+    "index.html": "./index.html",
+    "main.98a72df9.css.map": "./static/css/main.98a72df9.css.map",
+    "main.c2fc9e5d.js.map": "./static/js/main.c2fc9e5d.js.map"
   },
   "entrypoints": [
     "static/css/main.98a72df9.css",
