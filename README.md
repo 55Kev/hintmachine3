@@ -9,6 +9,8 @@ Pour pousser les modifications :
 + git add .
 + git commit -m "mon message"
 + git push origin master
++ npm run build
++ netlify deploy
 
 
 Ajout de 
