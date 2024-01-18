@@ -1,20 +1,21 @@
 
-## Build déployé sur la branche gh-pages
+## Build déployé NETLIFY
+
+Installation faite des script netlify
++ npm install netlify-cli -g
 
 Pour pousser les modifications :
 
-+ git push origin --delete gh-pages
-+ npm run build
-+ commit gh-pages (inclure les fichiers builds)
-+ git subtree push --prefix build  origin gh-pages
-+ attendre un peu....
++ git add .
++ git commit -m "mon message"
++ git push origin master
 
-https://gist.github.com/cobyism/4730490
 
 Ajout de 
-+ "predeploy": "npm run build",
-+ "deploy": "gh-pages -d build",
++ "homepage": ".",
 à package.json
+
+et d'un fichier "_redirects" à /public
 
 # Getting Started with Create React App
 
