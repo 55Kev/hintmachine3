@@ -14,12 +14,17 @@ export default function Menu({ render, enigmes, eventChoixEnigme }) {
       {enigmes.map((enigme, index) => (
         <button
           className="btn btn-default btn-lg"
-          onClick={() => eventChoixEnigme(index)}
+          onClick={() => eventChoixEnigme(index, enigme.page)}
         >
-          Page {enigme.page}
+          {getButtonLabel(enigme.page)}
         </button>
       ))}
     </div>
   </div>
   );
 }
+
+function getButtonLabel(index) {
+  return index === 99 ?  "Vérifier  la réponse à toute l'enquête !" :  'Page '+index;
+}
+        
