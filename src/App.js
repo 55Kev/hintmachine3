@@ -8,6 +8,7 @@ import AIX from "./const/aix";
 import SIF from "./const/sif";
 import PANIER from "./const/panier";
 import NIMES from "./const/nimes";
+import Form from "./components/Form";
 
 export default function App() {
 
@@ -58,6 +59,7 @@ export default function App() {
   ]);
   const [menuToRender, setMenuToRender] = useState(true);
   const [contentToRender, setContentToRender] = useState(false);
+  const [formToRender, setFormToRender] = useState(false);
 
 
 
@@ -71,15 +73,22 @@ export default function App() {
     setHistoryNav(hst);
   };
 
-  const handleChoixEnigme = (index) => {
+  const handleChoixEnigme = (index, enigme) => {
     setCurrentPage(index);
     setMenuToRender(false);
-    setContentToRender(true);
+    if(enigme === 99) {
+      setFormToRender(true);
+      setContentToRender(false);
+    } else {
+      setContentToRender(true);
+      setFormToRender(false);
+    }
   };
 
   const handleBackToMenu = () => {
     setMenuToRender(true);
     setContentToRender(false);
+    setFormToRender(false);
   };
 
   return (
@@ -94,6 +103,14 @@ export default function App() {
       />
       <Content
         render={contentToRender}
+        enigmes={tabEnigmes}
+        enigme={currentPage}
+        history={historyNav}
+        handleBackToMenu={handleBackToMenu}
+        handleShowHint={updateHistory}
+      />
+      <Form 
+        render={formToRender}
         enigmes={tabEnigmes}
         enigme={currentPage}
         history={historyNav}

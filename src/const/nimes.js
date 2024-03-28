@@ -128,6 +128,15 @@ const NIMES = [
         "Aux échecs",
         "Serena"
       ]
+    },
+    {
+      page: 99,
+      lib: "Vérifier  la réponse à toute l'enquête !",
+      texteIndice: [
+        "Faite jouer la statue",
+        "Aux échecs",
+        "Serena"
+      ]
     }
   ];
 

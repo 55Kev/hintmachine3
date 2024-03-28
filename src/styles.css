@@ -91,3 +91,17 @@ flex:1;
 .content .buttonGetIndice {
     margin-bottom: 10vh;
 }
+
+.compteur {
+  font-size: x-large;
+}
+
+.chiffre-central-compteur {
+  padding: 40px;
+  font-size: x-large;
+  margin-bottom: 50px;
+}
+
+.boup {
+  margin-bottom: 30px;
+}
