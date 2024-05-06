@@ -8,6 +8,8 @@ import AIX from "./const/aix";
 import SIF from "./const/sif";
 import PANIER from "./const/panier";
 import NIMES from "./const/nimes";
+import HUITMAI_B from "./const/8mai2";
+import HUITMAI_A from "./const/8mai";
 import Form from "./components/Form";
 
 export default function App() {
@@ -29,6 +31,8 @@ export default function App() {
     "panier": PANIER,
     "aix": AIX,
     "nimes": NIMES,
+    "8mai": HUITMAI_A,
+    "8mai2" : HUITMAI_B,
     "": vide
   };
   let tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : "avi";
