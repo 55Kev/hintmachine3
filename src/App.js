@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./styles.css";
 import Menu from "./components/Menu";
 import Content from "./components/Content";
+import Counter from "./components/Counter";
 import AVI from "./const/avi";
 import AIX from "./const/aix";
 import SIF from "./const/sif";
@@ -103,7 +104,8 @@ export default function App() {
         handleBackToMenu={handleBackToMenu}
         handleShowHint={updateHistory}
       />
+      <Counter />
     </div>
-
+    
   );
 }
