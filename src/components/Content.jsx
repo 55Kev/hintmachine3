@@ -1,3 +1,4 @@
+
 export default function Content({
   render,
   enigmes,
@@ -32,7 +33,29 @@ export default function Content({
   };
 
   const affLib = () => {
-    return enigmes[enigme].lib;
+    const urlOrText = enigmes[enigme].lib;
+    
+    if (urlOrText.length > 25) {
+      /*return (
+        <img className="img_full"
+            src = 'https://www.exitgame.fr/wp-content/uploads/2023/03/logor_trou.png'
+        />
+      );*/
+      return (
+        <img
+          className="img_full"
+          src = {urlOrText}
+          alt="page"
+        />
+      );
+    } else {
+      return (
+        <div>
+          <h3 className="text-center">page n°{enigmes[enigme].page}</h3>
+          <h4 className="text-center">{urlOrText}</h4>
+        </div>
+      );
+    }
   };
 
   const affLibButtonHint = () => {
@@ -64,9 +87,7 @@ export default function Content({
   //Affichage
   return (
     <div className="content">
-      <h3 className="text-center">page n°{enigmes[enigme].page}</h3>
-      <h4 className="text-center">"{affLib()}"</h4>
-
+      {affLib()}
       <button
         onClick={() => handleBackToMenu()}
         className="btn btn-primary btn-lg btn-block"

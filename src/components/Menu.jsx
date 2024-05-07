@@ -16,7 +16,7 @@ export default function Menu({ render, enigmes, eventChoixEnigme }) {
           className="btn btn-default btn-lg"
           onClick={() => eventChoixEnigme(index, enigme.page)}
         >
-          {getButtonLabel(enigme.page)}
+          {getButtonLabel(enigme.page, enigme.lib_page)}
         </button>
       ))}
     </div>
@@ -24,7 +24,12 @@ export default function Menu({ render, enigmes, eventChoixEnigme }) {
   );
 }
 
-function getButtonLabel(index) {
-  return index === 99 ?  "Vérifier  la réponse à toute l'enquête !" :  'Page '+index;
+function getButtonLabel(index, libelle) {
+  if (typeof libelle === 'undefined') {
+    return ('Page '+index);
+  } else {
+    return (libelle);
+  }
+  //return index === 99 ?  "Vérifier  la réponse à toute l'enquête !" :  'Page '+index;
 }
         
