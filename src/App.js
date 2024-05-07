@@ -10,6 +10,7 @@ import PANIER from "./const/panier";
 import NIMES from "./const/nimes";
 import HUITMAI_B from "./const/8mai2";
 import HUITMAI_A from "./const/8mai";
+import HUITMAI from "./const/8maiBackup"
 import Form from "./components/Form";
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
     "nimes": NIMES,
     "8mai": HUITMAI_A,
     "8mai2" : HUITMAI_B,
+    "8mai3" : HUITMAI,
     "": vide
   };
   let tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : "avi";
@@ -41,30 +43,10 @@ export default function App() {
   }
 
   const [currentPage, setCurrentPage] = useState("");
-  const [historyNav, setHistoryNav] = useState([
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0,
-  0
-  ]);
+  const [historyNav, setHistoryNav] = useState([0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]);
   const [menuToRender, setMenuToRender] = useState(true);
   const [contentToRender, setContentToRender] = useState(false);
   const [formToRender, setFormToRender] = useState(false);
-
 
 
   const updateHistory = () => {
