@@ -22,39 +22,37 @@ export default function Content({
         contenu.push("La solution :");
       contenu.push(enigmes[enigme].texteIndice[i] + ".");
     }
-    //if historyNav[index] > 1
-    //setCurrentIndice(tabEnigmes[index].texteIndice[historyNav[index]]);
-    //Copie de l'état puis re-import pour MAJ
-    //const hst = [...history];
-    //if (history[enigme] < enigmes[enigme].texteIndice.length) hst[enigme]++;
-    //setHistoryNav(hst);
-
     return contenu;
   };
 
-  const affLib = () => {
-    const urlOrText = enigmes[enigme].lib;
-    
-    if (urlOrText.length > 25) {
-      /*return (
-        <img className="img_full"
-            src = 'https://www.exitgame.fr/wp-content/uploads/2023/03/logor_trou.png'
-        />
-      );*/
-      return (
-        <img
-          className="img_full"
-          src = {urlOrText}
-          alt="page"
-        />
-      );
-    } else {
+  const affLib3 = () => {
+
+    if (typeof enigmes[enigme].lib === 'undefined') {
       return (
         <div>
-          <h3 className="text-center">page n°{enigmes[enigme].page}</h3>
-          <h4 className="text-center">{urlOrText}</h4>
-        </div>
+        <h3 className="text-center">page n°{enigmes[enigme].page}</h3>
+      </div>
       );
+    } else {
+      const urlOrText = enigmes[enigme].lib;
+      
+      if (urlOrText.length > 25) {
+
+        return (
+          <img
+            className="img_full"
+            src = {urlOrText}
+            alt="page"
+          />
+        );
+      } else {
+        return (
+          <div>
+            <h3 className="text-center">page n°{enigmes[enigme].page}</h3>
+            <h4 className="text-center">{urlOrText}</h4>
+          </div>
+        );
+      }
     }
   };
 
@@ -87,7 +85,7 @@ export default function Content({
   //Affichage
   return (
     <div className="content">
-      {affLib()}
+      {affLib3()}
       <button
         onClick={() => handleBackToMenu()}
         className="btn btn-primary btn-lg btn-block"

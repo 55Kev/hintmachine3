@@ -27,7 +27,7 @@ export default function Form({
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (firstNumber === 3 && secondNumber === 6) {
+      if (firstNumber === enigmes[enigme].firstNumber && secondNumber === enigmes[enigme].secondNumber) {
         setMessage('Félicitations!');
         setShowNewsletterForm(true);
         setFormContent(2);
@@ -74,6 +74,13 @@ export default function Form({
     }
 
     const renderForm = () => {
+        if (
+                (typeof enigmes[enigme].firstNumber === 'undefined')
+                || (typeof enigmes[enigme].secondNumber === 'undefined')
+           )  {
+            return ("Oups erreur :(");
+        }    
+
         if (formContent === 2) {
             return (
                 <div className="container text-center">
@@ -180,71 +187,4 @@ export default function Form({
     }
 
     return renderForm(formContent);
-  /*
-    return (       
-        <div className="container text-center">
-            <div class="row boup">
-                <h3>Vous avez terminé le parcours ? Vérifiez votre enquête !</h3>
-            </div>
-            <div class="row">
-                <h4>Quel est le numéro de suspect du coupable ?</h4>
-            </div>
-            <div class="row boup">
-                <button
-                    className="btn btn-default btn-lg compteur"
-                    onClick={() => handleFirstNumberChange(firstNumber-1)}
-                >
-                -
-                </button>
-
-                <span className='chiffre-central-compteur'>
-                    {firstNumber}
-                </span>
-                <button
-                    className="btn btn-default btn-lg compteur"
-                    onClick={() => handleFirstNumberChange(firstNumber+1)}
-                >
-                +
-                </button>
-            </div>
-
-            <div class="row">
-                <h4>Combien de mots raturés dans son texte ?</h4>
-            </div>
-            <div class="row boup">
-                <button
-                    className="btn btn-default btn-lg compteur"
-                    onClick={() => handleSecondNumberChange(secondNumber-1)}
-                >
-                -
-                </button>
-
-                <span className='chiffre-central-compteur'>
-                    {secondNumber}
-                </span>
-                <button
-                    className="btn btn-default btn-lg compteur"
-                    onClick={() => handleSecondNumberChange(secondNumber+1)}
-                >
-                +
-                </button>
-            </div>
-
-            
-            <form class="row boup" onSubmit={handleSubmit}>
-                <button className="btn btn-default btn-lg"
-                        type="submit">
-                            <h4>Vérifier votre réponse</h4></button>
-                {message && renderMessage()}
-            </form>
-
-            <button
-                onClick={() => ResetAndBack()}
-                className="btn btn-primary btn-lg btn-block"
-            >
-                Revenir aux indices
-            </button>
-        </div> 
-    ); */
-  
 }

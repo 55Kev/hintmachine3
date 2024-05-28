@@ -3,15 +3,12 @@ import { useState } from "react";
 import "./styles.css";
 import Menu from "./components/Menu";
 import Content from "./components/Content";
-import Counter from "./components/Counter";
 import AVI from "./const/avi";
 import AIX from "./const/aix";
 import SIF from "./const/sif";
 import PANIER from "./const/panier";
 import NIMES from "./const/nimes";
-import HUITMAI_B from "./const/8mai2";
-import HUITMAI_A from "./const/8mai";
-import HUITMAI from "./const/8maiBackup"
+import VP from "./const/vp";
 import Form from "./components/Form";
 
 export default function App() {
@@ -33,9 +30,7 @@ export default function App() {
     "panier": PANIER,
     "aix": AIX,
     "nimes": NIMES,
-    "8mai": HUITMAI_A,
-    "8mai2" : HUITMAI_B,
-    "8mai3" : HUITMAI,
+    "vp" : VP,
     "": vide
   };
   let tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : "avi";
@@ -104,7 +99,6 @@ export default function App() {
         handleBackToMenu={handleBackToMenu}
         handleShowHint={updateHistory}
       />
-      <Counter />
     </div>
     
   );

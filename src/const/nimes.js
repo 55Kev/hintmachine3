@@ -133,11 +133,8 @@ const NIMES = [
       page: 99,
       lib_page: "Vérifier la réponse à toute l'enquête !",
       lib: "Vérifier la réponse à toute l'enquête !",
-      texteIndice: [
-        "Faite jouer la statue",
-        "Aux échecs",
-        "Serena"
-      ]
+      firstNumber: 3,
+      secondNumber: 6
     }
   ];
 
