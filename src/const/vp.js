@@ -131,7 +131,9 @@ const VP = [
         lib_page: "Dernière énigme",
         lib: "Qui est le coupable ?",
         firstNumber: 4,
-        secondNumber: 6
+        secondNumber: 6,
+        lib_win_title: "Félicitations!",
+        lib_win_texte: "Vous avez identifié le vrai coupable !"
       }
     ];
 

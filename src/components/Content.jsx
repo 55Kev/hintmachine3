@@ -16,7 +16,7 @@ export default function Content({
 
   const affEnigme = () => {
     console.log(enigme);
-    console.log(history);
+    //console.log(history);
     for (let i = 0; i < history[enigme]; i++) {
       if (i === enigmes[enigme].texteIndice.length - 1)
         contenu.push("La solution :");
@@ -58,11 +58,12 @@ export default function Content({
 
   const affLibButtonHint = () => {
     let ret = "";
+    let classSupp = "btn btn-primary btn-lg btn-block buttonGetIndice";
 
     if (history[enigme] === enigmes[enigme].texteIndice.length) {
-        ret = "Passez à l'étape suivante !";
-      }
-    else if (history[enigme] === enigmes[enigme].texteIndice.length - 1)
+        ret = "Solution affichée";
+        classSupp = "btn btn-primary btn-lg btn-block buttonGetIndice btn-disabled"
+    } else if (history[enigme] === enigmes[enigme].texteIndice.length - 1)
       ret = "Afficher la solution";
     else {
       ret =
@@ -75,7 +76,7 @@ export default function Content({
     return (
       <button
         onClick={() => handleShowHint()}
-        className="btn btn-primary btn-lg btn-block buttonGetIndice"
+        className={classSupp}
          >
          {ret}
       </button>

@@ -21,15 +21,72 @@ body {
            align-items: center;
      }
 
-.hero {
-  background-image: url("https://www.exitgame.fr/wp-content/uploads/2023/03/logor_trou.png");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: 17%;
+.hero-ex {
   color: #c0daff;
   height: 15vh;
   min-width: 400px;
   margin-top: 5%;
+  flex-direction: row;
+}
+
+.hero {
+  padding: 2%;
+  margin-bottom: 5px;
+}
+
+.hero-content {
+  height: 15vh;
+  display: flex;
+  flex-wrap: row;
+  justify-content: space-between;
+}
+
+.hero-content .logo {
+  background-image: url("https://www.exitgame.fr/wp-content/uploads/2023/03/logor_trou.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 20vh;
+  height: 20vh;
+}
+
+.hero-content .col {
+  width: 33vw;
+}
+
+.topMessage {
+  background-color: cornflowerblue;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.bloc-bug {
+  width: 20vw;
+  margin: 10px;
+  padding: 5px;
+  font-size: x-small;
+  text-align: center;
+  color:#858585;
+  background-color:#454545;
+  border-radius: 5px;
+  max-width: 100px;
+  
+}
+
+.email-form {
+    padding: 4%;
+    margin: 3%;
+    flex:1;
+    background-color: #c0daff;
+    color: #6f6f6f;
+}
+
+.email-form button, .email-form input {
+    background-color:#7c99c1;
+    color: #292929;
+}
+
+.email-form p {
+  margin-top: 30px;
 }
 
 .menu {
@@ -63,22 +120,30 @@ body {
 }
 
 .content .contentIndice {
-flex:1;
-flex-grow:1;
-  min-height: 40vh;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  flex:1;
+  flex-grow:1;
+  padding-top: 1%;
 }
 
 .content .btn {
-flex:1;
-    height: 12vh;
+  flex:1;
+  height: 12vh;
   margin-top: 3%;
   background-color: #c0daff;
   border-color: #ccc;
   color: black;
   width: 90%;
 }
+
+.content .btn-disabled {
+  flex:1;
+      height: 12vh;
+    margin-top: 3%;
+    background-color: #6f6f6f;
+    border-color: #ccc;
+    color: black;
+    width: 90%;
+  }
 
 .content .p {
   margin-top: 5%;

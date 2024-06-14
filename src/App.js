@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useEffect, useMemo, useState } from "react";
 //import { useSearchParams } from "react-router-dom";
 import "./styles.css";
 import Menu from "./components/Menu";
@@ -10,18 +11,12 @@ import PANIER from "./const/panier";
 import NIMES from "./const/nimes";
 import VP from "./const/vp";
 import Form from "./components/Form";
+import TopMessage from "./components/TopMessage.jsx";
+import TopPageLogo from "./components/TopPageLogo";
 
 export default function App() {
 
-  const vide = [
-      {
-        page: 0,
-        lib: "Oups!",
-        texteIndice: ["Indice1", "indice2", "Reponse"]
-      },
-    ];
   const params = new URLSearchParams(window.location.search);
-  //const tabEnigmes = ((params.get("vi") === "avi") ? avi : sif);
 
   const enigmeParam = params.get("vi");
   const enigmeOptions = {
@@ -30,19 +25,17 @@ export default function App() {
     "panier": PANIER,
     "aix": AIX,
     "nimes": NIMES,
-    "vp" : VP,
-    "": vide
+    "vp" : VP
   };
-  let tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : "avi";
-  if (!tabEnigmes) {
-    tabEnigmes = enigmeOptions.vide; // Valeur par défaut si aucune option valide n'est spécifiée
-  }
+  let tabEnigmes = (enigmeOptions.hasOwnProperty(enigmeParam)) ? enigmeOptions[enigmeParam] : NIMES;
 
   const [currentPage, setCurrentPage] = useState("");
   const [historyNav, setHistoryNav] = useState([0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]);
   const [menuToRender, setMenuToRender] = useState(true);
   const [contentToRender, setContentToRender] = useState(false);
   const [formToRender, setFormToRender] = useState(false);
+  const [topMessageToRender, setTopMessageToRender] = useState(false);
+  const [topMessageContent, setTopMessageContent] = useState("");
 
 
   const updateHistory = () => {
@@ -67,20 +60,43 @@ export default function App() {
     }
   };
 
+  let messageToShow = "";
+
+  const handleShowTopMessage = (message) => {
+    setTopMessageToRender(true);
+    console.log("handleShowTopMessage Fired!");
+    setTopMessageContent(message);
+  }
+
   const handleBackToMenu = () => {
     setMenuToRender(true);
     setContentToRender(false);
     setFormToRender(false);
+    setTopMessageToRender(false);
   };
 
+  /*<TopPageLogo
+        enigmes={tabEnigmes}
+        enigme={currentPage}
+      />*/
+
   return (
+    
     <div className="App">
-      <div className="hero">
-        <h1 className="text-center">.</h1>
-      </div>
+      <TopMessage
+        render={topMessageToRender}
+        message={topMessageContent}
+      />
+      <TopPageLogo
+        enigmes={tabEnigmes}
+        enigme={currentPage}
+        showMessage={handleShowTopMessage}
+        renderButton={contentToRender}
+      />
       <Menu
         render={menuToRender}
         enigmes={tabEnigmes}
+        enigme={currentPage}
         eventChoixEnigme={handleChoixEnigme}
       />
       <Content
