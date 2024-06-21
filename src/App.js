@@ -3,14 +3,15 @@ import { useEffect, useMemo, useState } from "react";
 //import { useSearchParams } from "react-router-dom";
 import "./styles.css";
 import Menu from "./components/Menu";
-import Content from "./components/Content";
+import ContentIndices from "./components/ContentIndices";
 import AVI from "./const/avi";
 import AIX from "./const/aix";
 import SIF from "./const/sif";
 import PANIER from "./const/panier";
 import NIMES from "./const/nimes";
 import VP from "./const/vp";
-import Form from "./components/Form";
+import Form2Numbers from "./components/Form2Numbers.jsx";
+import FormLetters from "./components/FormLetters.jsx";
 import TopMessage from "./components/TopMessage.jsx";
 import TopPageLogo from "./components/TopPageLogo";
 
@@ -32,8 +33,9 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState("");
   const [historyNav, setHistoryNav] = useState([0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]);
   const [menuToRender, setMenuToRender] = useState(true);
-  const [contentToRender, setContentToRender] = useState(false);
-  const [formToRender, setFormToRender] = useState(false);
+  const [contentIndicesToRender, setContentIndicesToRender] = useState(false);
+  const [form2NumbersToRender, setForm2NumbersToRender] = useState(false);
+  const [formLettersToRender, setFormLettersToRender] = useState(false);
   const [topMessageToRender, setTopMessageToRender] = useState(false);
   const [topMessageContent, setTopMessageContent] = useState("");
 
@@ -52,11 +54,17 @@ export default function App() {
     setCurrentPage(index);
     setMenuToRender(false);
     if(enigme === 99) {
-      setFormToRender(true);
-      setContentToRender(false);
+      setForm2NumbersToRender(true);
+      setFormLettersToRender(false);
+      setContentIndicesToRender(false);
+    } else if(enigme === 98) {
+      setForm2NumbersToRender(false);
+      setFormLettersToRender(true);
+      setContentIndicesToRender(false);
     } else {
-      setContentToRender(true);
-      setFormToRender(false);
+      setForm2NumbersToRender(false);
+      setFormLettersToRender(false);
+      setContentIndicesToRender(true);
     }
   };
 
@@ -70,9 +78,11 @@ export default function App() {
 
   const handleBackToMenu = () => {
     setMenuToRender(true);
-    setContentToRender(false);
-    setFormToRender(false);
     setTopMessageToRender(false);
+    //
+    setForm2NumbersToRender(false);
+    setFormLettersToRender(false);
+    setContentIndicesToRender(false);
   };
 
   /*<TopPageLogo
@@ -91,7 +101,7 @@ export default function App() {
         enigmes={tabEnigmes}
         enigme={currentPage}
         showMessage={handleShowTopMessage}
-        renderButton={contentToRender}
+        renderButton={contentIndicesToRender}
       />
       <Menu
         render={menuToRender}
@@ -99,16 +109,24 @@ export default function App() {
         enigme={currentPage}
         eventChoixEnigme={handleChoixEnigme}
       />
-      <Content
-        render={contentToRender}
+      <ContentIndices
+        render={contentIndicesToRender}
         enigmes={tabEnigmes}
         enigme={currentPage}
         history={historyNav}
         handleBackToMenu={handleBackToMenu}
         handleShowHint={updateHistory}
       />
-      <Form 
-        render={formToRender}
+      <Form2Numbers 
+        render={form2NumbersToRender}
+        enigmes={tabEnigmes}
+        enigme={currentPage}
+        history={historyNav}
+        handleBackToMenu={handleBackToMenu}
+        handleShowHint={updateHistory}
+      />
+      <FormLetters
+        render={formLettersToRender}
         enigmes={tabEnigmes}
         enigme={currentPage}
         history={historyNav}
