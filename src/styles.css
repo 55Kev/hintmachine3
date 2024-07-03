@@ -45,8 +45,8 @@ body {
   background-image: url("https://www.exitgame.fr/wp-content/uploads/2023/03/logor_trou.png");
   background-position: top;
   background-repeat: no-repeat;
-  background-size: 20vh;
-  height: 20vh;
+  background-size: 15vh;
+  height: 15vh;
 }
 
 .hero-content .col {
@@ -61,23 +61,26 @@ body {
 
 .bloc-bug {
   width: 20vw;
-  margin: 10px;
-  padding: 5px;
+  margin: 8px;
+  padding: 4px;
   font-size: x-small;
   text-align: center;
-  color:#858585;
-  background-color:#454545;
-  border-radius: 5px;
+  color:#bcbcbc;
+  background-color:#3d6383;
+  border-radius: 4px;
   max-width: 100px;
   
 }
 
 .email-form {
-    padding: 4%;
-    margin: 3%;
+    padding: 8%;
+    margin: 6%;
     flex:1;
     background-color: #c0daff;
     color: #6f6f6f;
+    width: 90vw;
+    flex-direction: column;
+    align-items: center;
 }
 
 .email-form button, .email-form input {

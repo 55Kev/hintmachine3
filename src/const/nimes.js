@@ -130,12 +130,6 @@ const NIMES = [
       ]
     },
     {
-      page: 98,
-      lib_page: "Test !",
-      lib: "Vérifier la réponse à toute l'enquête - test !",
-      reponse: "PortoVecchio"
-    },
-    {
       page: 99,
       lib_page: "Vérifier la réponse à toute l'enquête !",
       lib: "Vérifier la réponse à toute l'enquête !",

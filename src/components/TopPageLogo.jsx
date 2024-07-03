@@ -36,7 +36,7 @@ export default function TopPageLogo({
         if (renderButton) {
             return (
                 <div className="bloc-bug" onClick={() => showForm()}>
-                    /!/ Signaler un problème dans l'énigme {page()}
+                    Signaler un problème dans l'énigme
                 </div>
             );
         } else return ("");
