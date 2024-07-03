@@ -5,10 +5,12 @@
   "private": false,
   "dependencies": {
     "@emailjs/react-native": "^4.2.2",
+    "@supabase/supabase-js": "^2.44.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@tsparticles/all": "^3.4.0",
+    "@tsparticles/react": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
@@ -42,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "supabase": "^1.178.2"
   }
 }

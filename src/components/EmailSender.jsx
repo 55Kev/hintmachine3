@@ -73,7 +73,7 @@ export default function EmailSender({
                     <input type="hidden" name="user_email" value="55exitgame@gmail.com"/>
                     <input type="hidden" name="caracteristiques" value={desc_enigme()} />
                     <p><label>Décrivez-nous en quelques mots ce qui cloche avec l'énigme de la page {page()} </label></p>
-                    <p><textarea name="message" rows="4" cols="50" /></p>
+                    <p><textarea name="message" rows="4" cols="42" /></p>
                     <p><input type="submit" value="Envoyer la remarque" /></p>
                     </form>
                     <p>
