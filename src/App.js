@@ -5,6 +5,7 @@ import "./styles.css";
 import Menu from "./components/Menu";
 import ContentIndices from "./components/ContentIndices";
 import AVI from "./const/avi";
+import AVI2 from "./const/avi2";
 import AIX from "./const/aix";
 import SIF from "./const/sif";
 import PANIER from "./const/panier";
@@ -23,6 +24,7 @@ export default function App() {
   const enigmeParam = params.get("vi");
   const enigmeOptions = {
     "avi": AVI,
+    "avi2": AVI2,
     "sif": SIF,
     "panier": PANIER,
     "aix": AIX,
