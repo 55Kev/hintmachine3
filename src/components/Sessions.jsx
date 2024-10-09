@@ -6,11 +6,13 @@ import PANIER from "../const/panier";
 import PANIERB2B from "../const/panierB2B";
 import NIMES from "../const/nimes";
 import VP from "../const/vp";
+import { createClient } from "@supabase/supabase-js";
 
-export async function getSession(client) {
+export async function getSession() {
 
     const session = {};
     const teamcode = getTeamCode();
+    const client = createClient("https://vsskgfobjbedojvmilkt.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzc2tnZm9iamJlZG9qdm1pbGt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk0NzgxMjIsImV4cCI6MjAzNTA1NDEyMn0.iYAtSmKfnwLdOlMGqBg11lDia0vBAvieqFuORTJ38D0");
 
     if (!hasNumber(teamcode)) {
         session.route = getParcours(teamcode);
@@ -36,19 +38,23 @@ export async function getSession(client) {
         alert("Aïe Aïe Aïe :( \n Code d'équipe incorrect");
         return null;
     } else {
+
+        if (data[0].parcours != null) {
+            session.route = getParcours(data[0].parcours);
+        } else {
+            alert("Aïe Aïe Aïe :( \n Parcours de la session inconnu");
+            return null;
+        }
+
         if (new Date(data[0].datecreation) > date) {
             console.log("Session déjà en cours");
             session.data = data;
         } else {
             console.log("Session non démarée, création...");
             signInAnonymously(client);
-            session.data = await createSession(client, getTeamCode(), new Date().toISOString());
+            session.data = await createSession(client, getTeamCode(), new Date().toISOString(), data[0].parcours);
         }
-        
     }
-
-    if (session.data[0].parcours != null) session.route = getParcours(session.data[0].parcours);
-    else alert("Aïe Aïe Aïe :( \n Parcours de la session inconnu");
     
     console.log("RETOUR getSession");
     console.log(session);
@@ -58,7 +64,6 @@ export async function getSession(client) {
 function getTeamCode() {
  
     const params = new URLSearchParams(window.location.search);
-
     return params.get("vi");
 
 }
@@ -67,13 +72,14 @@ async function signInAnonymously(client) {
     const { data, error } = await client.auth.signInAnonymously();
 }
 
-async function createSession(client, code, dateString) {
+async function createSession(client, code, dateString, route) {
     
     const { data, error } = await client
     .from('Sessions')
     .insert([
       { teamcode: code,
-        datecreation: dateString
+        datecreation: dateString,
+        parcours: route
        },
     ])
     .select()
