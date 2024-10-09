@@ -13,6 +13,7 @@ export default function Menu({ render, enigmes, eventChoixEnigme }) {
     <div className="menu-content text-center">
       {enigmes.map((enigme, index) => (
         <button
+          key={enigme.page}
           className="btn btn-default btn-lg"
           onClick={() => eventChoixEnigme(index, enigme.page)}
         >
