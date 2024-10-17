@@ -7,7 +7,7 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-  <StrictMode>
+  //<StrictMode> Retrait du "strictmode" pour éviter que UseEffect soit appelé deux fois
     <App />
-  </StrictMode>
+  //</StrictMode>
 );

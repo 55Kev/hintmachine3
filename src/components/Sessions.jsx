@@ -6,16 +6,42 @@ import PANIER from "../const/panier";
 import PANIERB2B from "../const/panierB2B";
 import NIMES from "../const/nimes";
 import VP from "../const/vp";
-import { createClient } from "@supabase/supabase-js";
 
-export async function getSession() {
+export async function updateSession(client, session) {
+
+    signInAnonymously(client);
+    
+    const { data, error } = await client
+    .from('Sessions')
+    .update([
+      { 
+        historique: session.history,
+        numTel: session.phone,
+        step: session.step,
+        //datefin: session.datefin
+       },
+    ])
+    .eq('id', session.id)
+    .select();
+    console.log("*** UpdateSession: Data mis à jour en ligne:");
+    console.log(data);
+
+    if (error != null) alert("Aïe Aïe Aïe :( \n Il semble que vous ne captez pas internet, creation du jeu impossible \n"+error.message);
+
+    return data;
+}
+
+export async function getSession(client) {
 
     const session = {};
-    const teamcode = getTeamCode();
-    const client = createClient("https://vsskgfobjbedojvmilkt.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzc2tnZm9iamJlZG9qdm1pbGt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk0NzgxMjIsImV4cCI6MjAzNTA1NDEyMn0.iYAtSmKfnwLdOlMGqBg11lDia0vBAvieqFuORTJ38D0");
+    session.teamcode = getTeamCode();
 
-    if (!hasNumber(teamcode)) {
-        session.route = getParcours(teamcode);
+    if (!hasNumber(session.teamcode)) {
+        session.route = getParcours(session.teamcode);
+        session.datedepart = null;
+        session.timer = false;
+        session.history = new Array(session.route.length).fill(0);
+        session.step = 3;
         console.log("Code parcours générique, pas de sessions vérifiée.");
         return session;
     }
@@ -26,7 +52,7 @@ export async function getSession() {
     
     console.log(dateString);
 
-    const { data, error } = await client.from("Sessions").select().order('datecreation', { ascending: false }).eq('teamcode', teamcode);
+    const { data, error } = await client.from("Sessions").select().order('datecreation', { ascending: false }).eq('teamcode', session.teamcode);
     console.log(data);
 
     if (error != null) {
@@ -39,6 +65,8 @@ export async function getSession() {
         return null;
     } else {
 
+        session.timer = true;
+
         if (data[0].parcours != null) {
             session.route = getParcours(data[0].parcours);
         } else {
@@ -46,13 +74,38 @@ export async function getSession() {
             return null;
         }
 
+        if (data[0].enigme_depart != null) {
+            session.enigme_depart = data[0].enigme_depart;
+        } else {
+            session.enigme_depart = true;
+        }
+
         if (new Date(data[0].datecreation) > date) {
             console.log("Session déjà en cours");
             session.data = data;
+            session.datedepart = data[0].datecreation;
+            session.id = data[0].id;
+            session.step = data[0].step;
+            session.phone = data[0].numTel;
+            //Correction automatique de la base de donnée si historique manquant...
+            if (data[0].historique == null) {
+                console.log("History null");
+                session.history = new Array(session.route.length).fill(0);
+            }
+                
+            else
+                session.history = data[0].historique;
+            
+            console.log("History en BDD");
+            console.log(data[0].historique);
         } else {
-            console.log("Session non démarée, création...");
-            signInAnonymously(client);
-            session.data = await createSession(client, getTeamCode(), new Date().toISOString(), data[0].parcours);
+            console.log("Session non démarrée, création...");
+            session.datedepart = new Date().toISOString();
+            session.step = 0;
+            session.phone = 0;
+            session.data = await createSession(client, session.teamcode, session.datedepart, data[0].parcours);
+            session.id = session.data[0].id;
+            session.history = new Array(session.route.length).fill(0);
         }
     }
     
@@ -73,13 +126,16 @@ async function signInAnonymously(client) {
 }
 
 async function createSession(client, code, dateString, route) {
+
+    signInAnonymously(client);
     
     const { data, error } = await client
     .from('Sessions')
     .insert([
       { teamcode: code,
         datecreation: dateString,
-        parcours: route
+        parcours: route,
+        step: 0
        },
     ])
     .select()
@@ -109,3 +165,45 @@ function getParcours(teamcode) {
 function hasNumber(myString) {
     return /\d/.test(myString);
 }
+
+export function SessionReducer(state, action) {
+    let st = {};
+    switch (action.type) {
+        case "nexStep":
+            st = { ...state, step: state.step + 1 };
+            if (state.timer) updateSession(action.client, st);
+            return st;
+            
+        case "newPhone":
+            st = { ...state, phone: action.value };
+            if (state.timer) updateSession(action.client, st);
+            return st;
+
+        case "creation":
+            return action.value;
+
+        case "newClue":
+            st = { ...state, history: action.value, step: state.step + 1 };
+            if (state.timer) updateSession(action.client, st);
+            return st;
+
+        case "victoire":
+            st = { ...state, datefin: action.value  };
+            if (state.timer) updateSession(action.client, st);
+            return st;
+
+        default:
+            return "SessionReducer: Unrecognized command";
+    }
+  }
+
+  export function isUpdateDatabaseNecessary(session, prevSession){
+    //historique: session.history,
+    if ((prevSession.step !== session.step) || 
+            (prevSession.phone !== session.phone) || 
+            (prevSession.history !== session.history) || 
+            (prevSession.datefin !== session.datefin)) {
+        return true;
+    }
+    return false;
+  }

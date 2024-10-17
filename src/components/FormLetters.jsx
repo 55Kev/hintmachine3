@@ -18,7 +18,7 @@ export function FormLetters({
     enigme,
     history,
     handleBackToMenu,
-    handleShowHint
+    handleAnswer
 }) {
     
     const [formState, setFormState] = useState(1);
@@ -63,6 +63,7 @@ export function FormLetters({
         if ( text.toString().length === reponseAttendue.length ) {
             if (text.toString().toUpperCase() === reponseAttendue) {
                 setMessage('Bravo ! Vous avez trouvé la bonne réponse.');
+                handleAnswer(enigme);
                 setFormState(2);
             } else {
                 setMessage('Désolé, ce n\'est pas la bonne réponse. Réessayez !');

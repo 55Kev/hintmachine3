@@ -7,7 +7,7 @@ export default function Form2Numbers({
     enigme,
     history,
     handleBackToMenu,
-    handleShowHint
+    handleAnswer
 }) {
     
     const [formContent, setFormContent] = useState('');
@@ -25,9 +25,9 @@ export default function Form2Numbers({
     };
   
     const handleSubmit = (e) => {
-      console.log("handleSubmit");
       e.preventDefault();
       if (firstNumber === enigmes[enigme].firstNumber && secondNumber === enigmes[enigme].secondNumber) {
+        handleAnswer(enigme);
         setFormContent("win");
       } else {
         setFormContent('tryAgain');
@@ -72,7 +72,7 @@ export default function Form2Numbers({
         if ( formContent === "win" ) {
             return (
                 <div className="container text-center">
-                    <div class="row boup confettis">
+                    <div className="row boup confettis">
                         <h1>{title}</h1>
                         <h4>{texte}</h4>
                     </div>
@@ -89,7 +89,7 @@ export default function Form2Numbers({
         } else if ( formContent === "tryAgain" ) {
             return (
                 <div className="container text-center">
-                    <div class="row boup">
+                    <div className="row boup">
                         <h1>Mauvaise réponse !</h1>
                     </div>
                     <button
@@ -109,13 +109,13 @@ export default function Form2Numbers({
         } else {
             return (
                 <div className="container text-center confettis">
-                    <div class="row boup">
+                    <div className="row boup">
                         <h3>Vous avez terminé le parcours ? Vérifiez votre enquête !</h3>
                     </div>
-                    <div class="row">
+                    <div className="row">
                         <h4>Quel est le numéro de suspect du coupable ?</h4>
                     </div>
-                    <div class="row boup">
+                    <div className="row boup">
                         <button
                             className="btn btn-default btn-lg compteur"
                             onClick={() => handleFirstNumberChange(firstNumber-1)}
@@ -134,10 +134,10 @@ export default function Form2Numbers({
                         </button>
                     </div>
 
-                    <div class="row">
+                    <div className="row">
                         <h4>Combien de mots raturés dans son texte ?</h4>
                     </div>
-                    <div class="row boup">
+                    <div className="row boup">
                         <button
                             className="btn btn-default btn-lg compteur"
                             onClick={() => handleSecondNumberChange(secondNumber-1)}
@@ -157,7 +157,7 @@ export default function Form2Numbers({
                     </div>
 
                     
-                    <form class="row boup" onSubmit={handleSubmit}>
+                    <form className="row boup" onSubmit={handleSubmit}>
                         <button className="btn btn-default btn-lg"
                                 type="submit">
                                     <h4>Vérifier votre réponse</h4>

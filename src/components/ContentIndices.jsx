@@ -14,9 +14,17 @@ export default function ContentIndices({
   //Comportements
   if (!render) return;
 
+  if (history == null) {
+    console.log("Erreur : history est null");
+    return;
+  }
+
+  if (enigmes == null) {
+    console.log("Erreur : enigmes est null");
+    return;
+  }
+
   const affEnigme = () => {
-    console.log(enigme);
-    //console.log(history);
     for (let i = 0; i < history[enigme]; i++) {
       if (i === enigmes[enigme].texteIndice.length - 1)
         contenu.push("La solution :");
@@ -30,8 +38,8 @@ export default function ContentIndices({
     if (typeof enigmes[enigme].lib === 'undefined') {
       return (
         <div>
-        <h3 className="text-center">page n°{enigmes[enigme].page}</h3>
-      </div>
+          <h3 className="text-center">page n°{enigmes[enigme].page}</h3>
+        </div>
       );
     } else {
       const urlOrText = enigmes[enigme].lib;
@@ -95,9 +103,7 @@ export default function ContentIndices({
       </button>
       <div className="contentIndice text-center">
         {affEnigme().map((tab, index) => (
-          <p>
-            <h3>{tab}</h3>
-          </p>
+            <h3 key={index}>{tab}</h3>
         ))}
       </div>
       {affLibButtonHint()}

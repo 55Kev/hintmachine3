@@ -4,6 +4,11 @@ export default function Menu({ render, enigmes, eventChoixEnigme }) {
   //Comportements
   if (!render) return;
 
+  if (enigmes == null) {
+    console.log("Erreur : enigmes est null ou pas définie");
+    return;
+  }
+
   //Affichage
   return (
   <div className="menu">
