@@ -66,7 +66,7 @@ export function FormLetters({
                 handleAnswer(enigme);
                 setFormState(2);
             } else {
-                setMessage('Désolé, ce n\'est pas la bonne réponse. Réessayez !');
+                setMessage('Ce n\'est pas la bonne réponse. Réessayez ! (les majuscules/minuscules n\'ont pas d\'importance)');
                 setReponse('');
             }
         }
@@ -74,6 +74,12 @@ export function FormLetters({
     };
 
     const renderForm = () => {
+
+        if (typeof enigmes[enigme].lib === 'undefined') {
+            var intro = "Vous avez terminé le parcours ? Quelle est la réponse à l'énigme ?";
+        } else {
+            var intro = enigmes[enigme].lib;
+        }
 
         if (typeof enigmes[enigme].lib_win_title === 'undefined') {
             var title = "Bravo ! Félicitations !";
@@ -109,6 +115,7 @@ export function FormLetters({
             return (
                 <div className="container">
                     <form id="reponseForm">
+                        <h4>{intro}</h4>
                         <div className='message'>{message}</div>
                         <div className='reponse'>{affichage}</div>
                         <div className='input'>

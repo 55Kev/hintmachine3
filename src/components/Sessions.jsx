@@ -18,7 +18,7 @@ export async function updateSession(client, session) {
         historique: session.history,
         numTel: session.phone,
         step: session.step,
-        //datefin: session.datefin
+        datefin: session.datefin
        },
     ])
     .eq('id', session.id)
@@ -87,6 +87,7 @@ export async function getSession(client) {
             session.id = data[0].id;
             session.step = data[0].step;
             session.phone = data[0].numTel;
+            session.datefin = data[0].datefin;
             //Correction automatique de la base de donnée si historique manquant...
             if (data[0].historique == null) {
                 console.log("History null");
@@ -188,7 +189,7 @@ export function SessionReducer(state, action) {
             return st;
 
         case "victoire":
-            st = { ...state, datefin: action.value  };
+            st = { ...state, datefin: action.value, step: state.step + 1  };
             if (state.timer) updateSession(action.client, st);
             return st;
 

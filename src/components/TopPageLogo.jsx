@@ -32,6 +32,11 @@ export default function TopPageLogo({
         
     };
 
+    const isTimerToRender = () => {
+        if (session.step < 3) return true;
+        return false;
+    }
+
     const showBugButton = () => {
 
         if (renderButton) {
@@ -62,6 +67,7 @@ export default function TopPageLogo({
                     <div className="col logo">
                         <Timer
                             datedepart={session.datedepart}
+                            render={isTimerToRender()}
                         />
                     </div>
                     <div className="col">

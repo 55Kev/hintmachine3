@@ -2,10 +2,13 @@
 import TimerComponent from "./TimerComponent.jsx";
 
 export default function Timer({
-    datedepart
+    datedepart,
+    render
 }) {
 
     if (datedepart == null) return;
+
+    if (!render) return;
     
     const now = new Date();
     const depart = new Date(datedepart);
