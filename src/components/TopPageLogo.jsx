@@ -1,9 +1,10 @@
 
 import EmailSender from "./EmailSender";
 import { useEffect, useMemo, useState } from "react";
+import Timer from "./Timer.jsx";
 
 export default function TopPageLogo({
-    enigmes,
+    session,
     enigme,
     showMessage,
     renderButton
@@ -20,13 +21,13 @@ export default function TopPageLogo({
 
     const page = () => {
         //console.log(enigme);
-        if (typeof enigmes[enigme] === 'undefined') {
+        if (typeof session.route[enigme] === 'undefined') {
             //console.log('undefined');
             return 99;
         } else {
             //console.log(enigmes[enigme]);
-            console.log(enigmes[enigme].page);
-            return enigmes[enigme].page;
+            console.log(session.route[enigme].page);
+            return session.route[enigme].page;
         }
         
     };
@@ -48,7 +49,7 @@ export default function TopPageLogo({
             <div className="hero">
                 <EmailSender
                     render={bugReportToRender}
-                    enigmes={enigmes}
+                    enigmes={session.route}
                     enigme={enigme}
                     eventCloseFormBugReport={handleCloseFormBugReport}
                     showMessage={showMessage}
@@ -59,7 +60,9 @@ export default function TopPageLogo({
                     
                     </div>
                     <div className="col logo">
-                    
+                        <Timer
+                            datedepart={session.datedepart}
+                        />
                     </div>
                     <div className="col">
                         {showBugButton()}

@@ -53,6 +53,17 @@ body {
   width: 33vw;
 }
 
+.hero-content .timer {
+  background-color: #183d87;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(8px + 3vmin);
+  margin-top: 30px;
+  padding-top: 6px;
+}
+
 .topMessage {
   background-color: cornflowerblue;
   color: aliceblue;
@@ -195,5 +206,11 @@ body {
   font-weight: bolder;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.vert {
+  background-color: #38a50d;
+  width: 100%;
+  height: 100%;
 }
 

@@ -127,7 +127,7 @@ async function signInAnonymously(client) {
 
 async function createSession(client, code, dateString, route) {
 
-    signInAnonymously(client);
+    await signInAnonymously(client);
     
     const { data, error } = await client
     .from('Sessions')
@@ -169,13 +169,13 @@ function hasNumber(myString) {
 export function SessionReducer(state, action) {
     let st = {};
     switch (action.type) {
-        case "nexStep":
+        case "nextStep":
             st = { ...state, step: state.step + 1 };
             if (state.timer) updateSession(action.client, st);
             return st;
             
         case "newPhone":
-            st = { ...state, phone: action.value };
+            st = { ...state, phone: action.value, step: state.step + 1 };
             if (state.timer) updateSession(action.client, st);
             return st;
 
@@ -183,7 +183,7 @@ export function SessionReducer(state, action) {
             return action.value;
 
         case "newClue":
-            st = { ...state, history: action.value, step: state.step + 1 };
+            st = { ...state, history: action.value };
             if (state.timer) updateSession(action.client, st);
             return st;
 

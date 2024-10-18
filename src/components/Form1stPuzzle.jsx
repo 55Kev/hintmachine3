@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import Particules from "./Particules";
 
@@ -12,33 +14,19 @@ import Particules from "./Particules";
 
     */
 
-export function FormLetters({
-    render,
-    enigmes,
-    enigme,
-    history,
-    handleBackToMenu,
-    handleAnswer
+export function Form1stPuzzle({
+    handleWin1stPuzzle,
+    handleNextStep
 }) {
-    
+    const reponseAttendue = '0078';
+    const titre_intro = "Enigme de qualification";
+    const intro = "Trouvez la solution aux énigmes sur la fiche avec le QR Code et entrez là ci-dessous";
+    const title = "Bonne réponse !";
+    const texte = "Montrez cet écran à l'animateur pour recevoir le dossier d'enquête !";
     const [formState, setFormState] = useState(1);
     const [reponse, setReponse] = useState('');
     const [message, setMessage] = useState('');
-    const [affichage, setAffichage] = useState('_'.repeat(5));
-  
-    if (!render) return;
-
-    if (typeof enigmes[enigme].reponse === 'undefined') {
-        return ("Oups ! Erreur :(, la réponse n'est pas configurée");
-    } else {
-        var reponseAttendue = enigmes[enigme].reponse.toUpperCase();
-        //setAffichage('_'.repeat(reponseAttendue.length);
-    }
-
-    const ResetAndBack = () => {
-        Reset();
-        handleBackToMenu();
-    }
+    const [affichage, setAffichage] = useState('_'.repeat(4));
 
     const Reset = () => {
         setFormState(1);
@@ -63,7 +51,6 @@ export function FormLetters({
         if ( text.toString().length === reponseAttendue.length ) {
             if (text.toString().toUpperCase() === reponseAttendue) {
                 setMessage('Bravo ! Vous avez trouvé la bonne réponse.');
-                handleAnswer(enigme);
                 setFormState(2);
             } else {
                 setMessage('Désolé, ce n\'est pas la bonne réponse. Réessayez !');
@@ -75,32 +62,23 @@ export function FormLetters({
 
     const renderForm = () => {
 
-        if (typeof enigmes[enigme].lib_win_title === 'undefined') {
-            var title = "Bravo ! Félicitations !";
-        } else {
-            var title = enigmes[enigme].lib_win_title;
-        }
-
-        if (typeof enigmes[enigme].lib_win_texte === 'undefined') {
-            var texte = "Vous avez identifié le bon coupable !";
-        } else {
-            var texte = enigmes[enigme].lib_win_texte;
-        }
-       
         if (formState === 2) {
 
             return (
-                <div className="container text-center">
+                <div className="container text-center vert">
                     <div className="row boup confettis">
                         <h1>{title}</h1>
                         <h4>{texte}</h4>
                     </div>
+                    <div className="row boup confettis">
+
+                    </div>
                     <Particules/>
                     <button
-                        onClick={() => ResetAndBack()}
+                        onClick={() => handleWin1stPuzzle()}
                         className="btn btn-primary btn-lg btn-block"
                     >
-                        Revenir aux indices
+                        <p>Montrez cet écran à l'animateur</p><p>puis cliquez ici</p>
                     </button>
                 </div>
             );
@@ -109,6 +87,10 @@ export function FormLetters({
             return (
                 <div className="container">
                     <form id="reponseForm">
+                        <div className="row boup confettis">
+                            <h2>{titre_intro}</h2>
+                            <h4>{intro}</h4>
+                        </div>
                         <div className='message'>{message}</div>
                         <div className='reponse'>{affichage}</div>
                         <div className='input'>
@@ -122,16 +104,10 @@ export function FormLetters({
                             />
                         </div>
                     </form>
-                    <button
-                        onClick={() => ResetAndBack()}
-                        className="btn btn-primary btn-lg btn-block boop"
-                    >
-                        Revenir aux indices
-                    </button>
                 </div>
             );
         }   
     }
     return renderForm();
 };
-export default FormLetters;
+export default Form1stPuzzle;

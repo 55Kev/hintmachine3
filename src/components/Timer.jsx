@@ -17,11 +17,8 @@ export default function Timer({
 
     const renderTimer = () => {
         return (
-            <div className="hero timer">
-                <div className="hero-content">
-                    <TimerComponent startTime={Seconds_Between_Dates}
-                    />
-                </div>
+            <div className="timer">
+                    <TimerComponent startTime={Seconds_Between_Dates} />
             </div>
         );
     };
