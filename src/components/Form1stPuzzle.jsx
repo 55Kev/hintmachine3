@@ -19,7 +19,7 @@ export function Form1stPuzzle({
     handleNextStep
 }) {
     const reponseAttendue = '0078';
-    const titre_intro = "Enigme de qualification";
+    const titre_intro = "Étape n°2 : Enigme de qualification";
     const intro = "Trouvez la solution aux énigmes sur la fiche avec le QR Code et entrez là ci-dessous";
     const title = "Bonne réponse !";
     const texte = "Montrez cet écran à l'animateur pour recevoir le dossier d'enquête !";
@@ -67,7 +67,7 @@ export function Form1stPuzzle({
             return (
                 <div className="container text-center vert">
                     <div className="row boup confettis">
-                        <h1>{title}</h1>
+                        <h2>{title}</h2>
                         <h4>{texte}</h4>
                     </div>
                     <div className="row boup confettis">
@@ -86,8 +86,8 @@ export function Form1stPuzzle({
         } else {
             return (
                 <div className="container">
-                    <form id="reponseForm">
-                        <div className="row boup confettis">
+                    <form id="reponseForm" className="firstPuzzle">
+                        <div className="boup confettis">
                             <h2>{titre_intro}</h2>
                             <h4>{intro}</h4>
                         </div>

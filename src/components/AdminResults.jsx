@@ -6,7 +6,7 @@ const styles = {
     container: {
       display: 'flex',
       flexDirection: 'column',
-      width: '100vw',
+      width: '95vw',
     },
     formGroup: {
       display: 'flex',
@@ -53,14 +53,14 @@ const styles = {
       backgroundColor: '#f3f4f6',
     },
     th: {
-      padding: '0.75rem 1rem',
+      padding: '0.8rem 0.8rem',
       fontSize: '1rem',
       fontWeight: '600',
       textTransform: 'uppercase',
       color: 'black',
     },
     td: {
-      padding: '1rem 1.5rem',
+        padding: '0.8rem 0.8rem',
       borderBottom: '1px solid #e5e7eb',
     },
     tr: {
@@ -131,21 +131,26 @@ export function AdminResults({client, render, session}) {
                 sumWithInitial = (session.historique.length * indicesParEnigme * ptsParIndice) - ( sumWithInitial * ptsParIndice );
             }
             const dateDepart = new Date(session.datecreation);
-            let tpsParcours = "Pas arrivée";
+            let statut = "En cours";
+            let dateArrivee = 0;
             if (session.datefin !== null) {
-                const dateArrivee = new Date(session.datefin);
-                const tps = new Date(dateArrivee - dateDepart);
-                tpsParcours = tps.getHours()+"h"+tps.getMinutes();
+                dateArrivee = new Date(session.datefin);
+                statut = "Fini";
+                sumWithInitial = sumWithInitial + 50;
+            } else {
+                dateArrivee = new Date();
             }
+            const tps = new Date(dateArrivee - dateDepart);
+            const tpsParcours = tps.getUTCHours()+"h"+tps.getUTCMinutes();
 
             //select('teamcode, numTel, parcours, datefin, historique')
             data.push({
                 Team: session.parcours+" - "+session.teamcode,
                 NumTel: session.numTel,
-                HeureDepart: dateDepart.getHours()+"h"+dateDepart.getMinutes(),
-                TempsParcours: tpsParcours,
-                NbIndices: sumWithInitial+" pts ",
-                Historique: session.historique
+                Depart: dateDepart.getHours()+"h"+dateDepart.getMinutes(),
+                Temps_Ecoule: tpsParcours+" / "+statut,
+                Score: sumWithInitial+" pts",
+                Historique_indices: session.historique
             })
         }
     }
@@ -202,7 +207,17 @@ export function AdminResults({client, render, session}) {
               Aucun enregistrement trouvé pour cette date
             </div>
           )}
+            <div style={styles.noData}>
+              Méthode de calcul : Chaque énigme donne automatiquement 15pts, 5pts sont retirés à chaque demande d'indice. +50pts lorsque la dernière énigme est correctement répondue.
+            </div>
+            <div style={styles.noData}>
+              Pensez à ajouter aux scores affichés un bonus pour les 3 premiers groupes arrivés : +30pts pour le 1er, +20pts pour le 2ème, etc...
+            </div>
+            <div style={styles.noData}>
+              Attention un groupe ayant fini peut toujours afficher des indices mais cela leurs fait perdre des points même après la partie, vigilance...
+            </div>
         </div>
+        
       );
 };
 export default AdminResults;

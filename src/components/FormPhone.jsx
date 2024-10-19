@@ -24,10 +24,10 @@ const FormPhone = ({
     
       const styles = {
         form: {
-          maxWidth: '300px',
+          maxWidth: '90%',
           margin: '2rem auto',
           padding: '1rem',
-          backgroundColor: '#f9f9f9',
+          backgroundColor: 'black',
           borderRadius: '8px',
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
         },
@@ -38,18 +38,21 @@ const FormPhone = ({
           display: 'block',
           marginBottom: '0.5rem',
           fontWeight: 'bold',
-          color: '#333',
+          color: 'white',
+          fontSize: '2rem',
         },
         input: {
-          width: '100%',
-          padding: '0.5rem',
+          width: '60%',
+          marginTop: '70px',
+          marginBottom: '20px',
+          padding: '1rem',
           border: '1px solid #ccc',
           borderRadius: '4px',
-          fontSize: '1rem',
+          fontSize: '2rem',
         },
         errorMessage: {
-          color: '#d32f2f',
-          fontSize: '0.875rem',
+          color: 'red',
+          fontSize: '2rem',
           marginTop: '0.5rem',
         },
         button: {
@@ -59,7 +62,7 @@ const FormPhone = ({
           border: 'none',
           borderRadius: '4px',
           cursor: 'pointer',
-          fontSize: '1rem',
+          fontSize: '2rem',
           transition: 'background-color 0.3s',
         },
       };
@@ -68,9 +71,9 @@ const FormPhone = ({
         <form onSubmit={handleSubmit} style={styles.form}>
           <div style={styles.formGroup}>
             <label htmlFor="phoneNumber" style={styles.label}>
-            <p>Étape n°1 :</p>
-            <p>Indiquez-nous le numéro de téléphone d’un des membres de votre équipe.</p>
-            <p>Il est uniquement utilisé aujourd’hui si nous avons besoin de vous joindre en urgence. Ce numéro n’est pas conservé par ExitGame. Il ne sera jamais utilisé pour vous spammer.</p>
+              <h2>Étape n°1 :</h2>
+              <p>Indiquez le numéro de téléphone d’un membre de votre équipe.</p>
+              <h5>Il sera uniquement utilisé aujourd’hui si nous avons absolument besoin de vous contacter. Ce numéro n’est pas conservé par ExitGame. Il ne sera jamais utilisé pour vous spammer ou pour d'autres communications.</h5>
             </label>
             <input
               type="tel"
@@ -78,12 +81,12 @@ const FormPhone = ({
               value={phoneNumber}
               onChange={handleChange}
               style={styles.input}
-              placeholder="Entrez votre numéro de téléphone"
+              placeholder="Numéro de téléphone"
             />
           </div>
           {error && <p style={styles.errorMessage}>{error}</p>}
           <button type="submit" style={styles.button}>
-            Soumettre
+            Valider
           </button>
         </form>
       );
