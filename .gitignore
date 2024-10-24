@@ -11,7 +11,7 @@
 # production
 /build 
 #comment car besoin pour la prod de github pages
-/const
+/src/const
 /public
 
 # misc
