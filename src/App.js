@@ -12,12 +12,9 @@ import AdminResults from "./components/AdminResults.jsx"
 import { createClient } from "@supabase/supabase-js";
 import FormPhone from "./components/FormPhone.jsx";
 import Form1stPuzzle from "./components/Form1stPuzzle.jsx";
-import supabaseUrl from "./const/config.js";
-import supabaseSecretKey from "./const/config.js";
+import CONFIG from "./const/config.js";
 
-
-const client = createClient(supabaseUrl, supabaseSecretKey);
-
+const client = createClient(CONFIG.supabaseUrl, CONFIG.supabaseSecretKey);
 
 export default function App() {
 
