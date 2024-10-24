@@ -11,6 +11,8 @@
 # production
 /build 
 #comment car besoin pour la prod de github pages
+/const
+/public
 
 # misc
 .DS_Store
