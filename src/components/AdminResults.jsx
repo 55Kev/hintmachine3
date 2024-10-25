@@ -12,7 +12,7 @@ const styles = {
       display: 'flex',
       alignItems: 'center',
       gap: '1rem',
-      marginBottom: '1rem',
+      margin: '2rem',
     },
     label: {
       fontSize: '1.5rem',
@@ -74,7 +74,7 @@ const styles = {
     noData: {
       textAlign: 'center',
       padding: '1rem',
-      color: '#6b7280',
+      color: 'white',
     }
   };
 
@@ -95,7 +95,7 @@ export function AdminResults({client, render, session}) {
         const dateFin = date.toISOString();
 
         const { data, error } = await client.from("Sessions")
-            .select('teamcode, numTel, parcours, datefin, historique, datecreation')
+            .select('teamcode, numTel, parcours, datefin, historique, datecreation, step')
             .order('datecreation', { ascending: false })
             .lt('datecreation', dateFin)
             .gt('datecreation', dateDebut);
@@ -139,6 +139,10 @@ export function AdminResults({client, render, session}) {
                 sumWithInitial = sumWithInitial + 50;
             } else {
                 dateArrivee = new Date();
+            }
+
+            if (session.step < 2) {
+                statut = "Attente tel";
             }
             const tps = new Date(dateArrivee - dateDepart);
             const tpsParcours = tps.getUTCHours()+"h"+tps.getUTCMinutes();
@@ -215,6 +219,9 @@ export function AdminResults({client, render, session}) {
             </div>
             <div style={styles.noData}>
               Attention un groupe ayant fini peut toujours afficher des indices mais cela leurs fait perdre des points même après la partie, vigilance...
+            </div>
+            <div style={styles.noData}>
+              ...
             </div>
         </div>
         

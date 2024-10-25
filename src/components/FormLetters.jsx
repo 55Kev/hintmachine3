@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Particules from "./Particules";
 
 /*
@@ -20,11 +20,10 @@ export function FormLetters({
     handleBackToMenu,
     handleAnswer
 }) {
-    
     const [formState, setFormState] = useState(1);
     const [reponse, setReponse] = useState('');
     const [message, setMessage] = useState('');
-    const [affichage, setAffichage] = useState('_'.repeat(5));
+    const [affichage, setAffichage] = useState('');
   
     if (!render) return;
 
@@ -32,6 +31,8 @@ export function FormLetters({
         return ("Oups ! Erreur :(, la réponse n'est pas configurée");
     } else {
         var reponseAttendue = enigmes[enigme].reponse.toUpperCase();
+        console.log(reponseAttendue.length);
+        //setAffichage('_'.repeat(reponseAttendue.length));
         //setAffichage('_'.repeat(reponseAttendue.length);
     }
 

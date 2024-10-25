@@ -4,6 +4,7 @@ import AIX from "../const/aix";
 import SIF from "../const/sif";
 import PANIER from "../const/panier";
 import PANIERB2B from "../const/panierB2B";
+import PANIERB2BTEMP from "../const/panierB2Btemp";
 import NIMES from "../const/nimes";
 import VP from "../const/vp";
 
@@ -153,7 +154,8 @@ function getParcours(teamcode) {
       "AVII": AVI2,
       "SIF": SIF,
       "PANIER": PANIER,
-      "PANIERBIZ": PANIERB2B,
+      "PANIERBIZ": PANIERB2BTEMP,
+      "PANIERAPP": PANIERB2B,
       "AIX": AIX,
       "NIMES": NIMES,
       "VP" : VP
