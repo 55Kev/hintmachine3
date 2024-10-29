@@ -64,6 +64,7 @@ export function FormLetters({
             if (text.toString().toUpperCase() === reponseAttendue) {
                 message = 'Bravo ! Vous avez trouvé la bonne réponse.';
                 setFormState(2);
+                handleAnswer(enigme);
             } else {
                 message = text+' n\'est pas la bonne réponse. Réessayez !';
                 nouvelAffichage = '_'.repeat(reponseAttendue.length);
