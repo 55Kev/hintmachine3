@@ -19,8 +19,8 @@ export function Form1stPuzzle({
     handleNextStep
 }) {
     const reponseAttendue = '00';
-    const titre_intro = "Étape n°2 : Enigme de qualification";
-    const intro = "Trouvez la solution à l'énigme donnée par l'animateur et entrez là ci-dessous";
+    const titre_intro = "Étape n°2 : Trouvez la solution à l'énigme suivante :";
+    const intro = "Un chasseur tire sur un arbre où il y a 24 oiseaux, en tuant un tier. Comment reste-t'il d'oiseaux dans l'arbre ?";
     const title = "Bonne réponse !";
     const texte = "Montrez cet écran à l'animateur pour recevoir le dossier d'enquête !";
     const [formState, setFormState] = useState(1);
