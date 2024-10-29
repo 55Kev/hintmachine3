@@ -49,29 +49,30 @@ export function FormLetters({
     }
 
     const handleChange = (e) => {
-        const text = e.target.value;
-        setReponse(text);
-        let nouveauAffichage = '';
+        let text = e.target.value;  
+        let nouvelAffichage = '';
+        let message = '';
         for (let i = 0; i < reponseAttendue.length; i++) {
-            setMessage('');
             if (text.length > i) {
-            nouveauAffichage += text[i].toUpperCase();
+                nouvelAffichage += text[i].toUpperCase();
             } else {
-            nouveauAffichage += '_';
+                nouvelAffichage += '_';
             }
         }
-        setAffichage(nouveauAffichage);
+        
         if ( text.toString().length === reponseAttendue.length ) {
             if (text.toString().toUpperCase() === reponseAttendue) {
-                setMessage('Bravo ! Vous avez trouvé la bonne réponse.');
-                handleAnswer(enigme);
+                message = 'Bravo ! Vous avez trouvé la bonne réponse.';
                 setFormState(2);
             } else {
-                setMessage('Ce n\'est pas la bonne réponse. Réessayez ! (les majuscules/minuscules n\'ont pas d\'importance)');
-                setReponse('');
+                message = text+' n\'est pas la bonne réponse. Réessayez !';
+                nouvelAffichage = '_'.repeat(reponseAttendue.length);
+                text = '';
             }
         }
-
+        setReponse(text);
+        setAffichage(nouvelAffichage);
+        setMessage(message);
     };
 
     const renderForm = () => {

@@ -18,15 +18,15 @@ export function Form1stPuzzle({
     handleWin1stPuzzle,
     handleNextStep
 }) {
-    const reponseAttendue = '0078';
+    const reponseAttendue = '00';
     const titre_intro = "Étape n°2 : Enigme de qualification";
-    const intro = "Trouvez la solution aux énigmes sur la fiche avec le QR Code et entrez là ci-dessous";
+    const intro = "Trouvez la solution à l'énigme donnée par l'animateur et entrez là ci-dessous";
     const title = "Bonne réponse !";
     const texte = "Montrez cet écran à l'animateur pour recevoir le dossier d'enquête !";
     const [formState, setFormState] = useState(1);
     const [reponse, setReponse] = useState('');
     const [message, setMessage] = useState('');
-    const [affichage, setAffichage] = useState('_'.repeat(4));
+    const [affichage, setAffichage] = useState('_'.repeat(2));
 
     const Reset = () => {
         setFormState(1);
@@ -36,28 +36,30 @@ export function Form1stPuzzle({
     }
 
     const handleChange = (e) => {
-        const text = e.target.value;
-        setReponse(text);
-        let nouveauAffichage = '';
+        let text = e.target.value;  
+        let nouvelAffichage = '';
+        let message = '';
         for (let i = 0; i < reponseAttendue.length; i++) {
-            setMessage('');
             if (text.length > i) {
-            nouveauAffichage += text[i].toUpperCase();
+                nouvelAffichage += text[i].toUpperCase();
             } else {
-            nouveauAffichage += '_';
+                nouvelAffichage += '_';
             }
         }
-        setAffichage(nouveauAffichage);
+        
         if ( text.toString().length === reponseAttendue.length ) {
             if (text.toString().toUpperCase() === reponseAttendue) {
-                setMessage('Bravo ! Vous avez trouvé la bonne réponse.');
+                message = 'Bravo ! Vous avez trouvé la bonne réponse.';
                 setFormState(2);
             } else {
-                setMessage('Désolé, ce n\'est pas la bonne réponse. Réessayez !');
-                setReponse('');
+                message = text+' n\'est pas la bonne réponse. Réessayez !';
+                nouvelAffichage = '_'.repeat(reponseAttendue.length);
+                text = '';
             }
         }
-
+        setReponse(text);
+        setAffichage(nouvelAffichage);
+        setMessage(message);
     };
 
     const renderForm = () => {
